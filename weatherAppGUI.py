@@ -7,6 +7,8 @@ import requests
 import pytz
 from PIL import Image, ImageTk
 
+from getINFO import getWeather
+
 # Create a window
 root = Tk()
 root.title("Look, the Weather!")
@@ -27,6 +29,8 @@ for idx, text in enumerate(labels_text):
 textfield = Entry(root, justify='center', width=15, font=("poppins", 25, 'bold'), bg="#444444", border=0)
 textfield.place(x=370, y=130)
 textfield.focus()  # Focus by default
+# Bind the Enter key to call the function
+textfield.bind("<Return>", lambda event: getWeather(textfield.get()))
 
 # Button boxes
 frame = Frame(root, width=900, height=180, bg="#747474", border=0)
@@ -66,8 +70,11 @@ clock.place(x=30,y=20)
 
 #timezone
 
-timezone=Label(root,font=("Helvetica",20),fg="white",bg="#57adff")
+timezone=Label(root,font=("Helvetica",20),fg="white",bg="#747474")
 timezone.place(x=700,y=20)
+
+long_lat = Label (root,font=("Helvetica",20),fg="white",bg="#747474")
+long_lat.place(x=700,y=50)
 
 
 
