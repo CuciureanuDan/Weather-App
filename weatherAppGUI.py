@@ -3,7 +3,6 @@ import tkinter as tk
 from geopy.geocoders import Nominatim
 from timezonefinder import TimezoneFinder 
 from datetime import *
-import requests
 import pytz
 from PIL import Image, ImageTk
 
@@ -30,7 +29,7 @@ textfield = Entry(root, justify='center', width=15, font=("poppins", 25, 'bold')
 textfield.place(x=370, y=130)
 textfield.focus()  # Focus by default
 # Bind the Enter key to call the function
-textfield.bind("<Return>", lambda event: getWeather(textfield.get()))
+textfield.bind("<Return>", lambda event: getWeather(textfield.get(), clock, timezone))
 
 # Button boxes
 frame = Frame(root, width=900, height=180, bg="#747474", border=0)
@@ -71,10 +70,10 @@ clock.place(x=30,y=20)
 #timezone
 
 timezone=Label(root,font=("Helvetica",20),fg="white",bg="#747474")
-timezone.place(x=700,y=20)
+timezone.place(x=600,y=20)
 
-long_lat = Label (root,font=("Helvetica",20),fg="white",bg="#747474")
-long_lat.place(x=700,y=50)
+#long_lat = Label (root,font=("Helvetica",20),fg="white",bg="#747474")
+#long_lat.place(x=600,y=50)
 
 
 
